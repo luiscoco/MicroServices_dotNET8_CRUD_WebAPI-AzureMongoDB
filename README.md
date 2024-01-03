@@ -101,6 +101,8 @@ You can also show the collections inside the database running the command:
 show collections
 ```
 
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/5bc6d63f-e5b2-46cb-b54c-2814d32879ba)
+
 To insert may items/documents inside the “Books” collections then type the command: 
 
 ```
@@ -115,6 +117,8 @@ the command:
 ```
 db.Books.find().pretty() 
 ```
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/07e481be-7a3c-4dca-aa04-4d34a9cf663a)
 
 ## 2. Create .NET8 WebAPI in Visual Studio 2022 Community Edition
 
