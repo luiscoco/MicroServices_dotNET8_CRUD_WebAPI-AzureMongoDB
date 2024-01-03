@@ -45,6 +45,25 @@ Now we select the option Azure CosmosDB for MongoDB, and we press the **create**
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/7b3640b0-1dee-49c5-aa9b-bce605b271e6)
 
+In order to optimize the service cost we choose the option **Request unit (RU) database account** 
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/916abf0b-6c7c-4723-a50e-3edb13b84f3f)
+
+In following screen we input the required data for creating the service
+
+We create a new ResourceGroup: myRG
+
+We set the service name: myazuremongodbaccount
+
+We choose the service location/region: West Europe
+
+Capacity mode: **serverless**
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/ce10ab29-a6c4-4719-a3b3-8950ed4e106a)
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/3807c092-9ee5-4042-8d43-4d78f14ba697)
+
+
 
 
 ## 2. Create .NET8 WebAPI in Visual Studio 2022 Community Edition
