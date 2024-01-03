@@ -10,7 +10,13 @@ The code for this example is available in this github repo: https://github.com/l
 
 - Install Studio 3T Free for MongoDB
 
-## 1. Create .NET8 WebAPI in Visual Studio 2022 Community Edition
+## 1. Create Azure CosmosDB
+
+
+
+
+
+## 2. Create .NET8 WebAPI in Visual Studio 2022 Community Edition
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-MongoDB/assets/32194879/a8457769-9718-4954-9d14-6a3950cf8b53)
 
@@ -20,7 +26,7 @@ The code for this example is available in this github repo: https://github.com/l
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-MongoDB/assets/32194879/719673cc-23c0-4f7a-a037-689b04eb5685)
 
-## 2. Add the MongoDB.Driver dependency
+## 3. Add the MongoDB.Driver dependency
 
 Select the menu option Tools->Nuget Package Manager->Manage Nuget Packages for Solution...
 
@@ -28,7 +34,7 @@ Then browse Mongo.DB.Driver and install it in your solution
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-MongoDB/assets/32194879/c793e87e-eb6a-4464-b9d5-d50a2d5b71b3)
 
-## 3. Add the Models
+## 4. Add the Models
 
 Create the Models folder and inside include the following two files:
 
@@ -76,7 +82,7 @@ namespace BookStoreApi.Models
 }
 ```
 
-## 4. Add the Service
+## 5. Add the Service
 
 Create a Services folder with the following file:
 
@@ -124,7 +130,7 @@ namespace BookStoreApi.Services
 }
 ```
 
-## 5. Add the Controller
+## 6. Add the Controller
 
 In the Controllers folder include the following file:
 
@@ -206,17 +212,33 @@ public class BooksController : ControllerBase
 }
 ```
 
-## 6. Modify Program.cs file
+## 7. Modify Program.cs file
 
-In the Program.cs file include the following code:
+In the **Program.cs** file include the following code:
 
 ```csharp
 using BookStoreApi.Models;
 using BookStoreApi.Services;
+using MongoDB.Driver;
+using System.Security.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// MongoDB configuration
+string connectionString =
+    @"mongodb://mymongodbinazure:4rriLsdDhrtgcjtb2N6LON1sVoMNyujurKiWzhKXoS5cNdNloIZ8pPclPqNVsoilPK4QlnuQjtIfACDb6AY2mA==@mymongodbinazure.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@mymongodbinazure@";
+MongoClientSettings settings = MongoClientSettings.FromUrl(
+    new MongoUrl(connectionString)
+);
+settings.SslSettings = new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
+
+var mongoClient = new MongoClient(settings);
+
+// Register MongoClient with DI container
+builder.Services.AddSingleton<IMongoClient>(mongoClient);
+
+
 ConfigurationManager Configuration = builder.Configuration;
 
 // Add services to the container.
@@ -225,7 +247,10 @@ builder.Services.Configure<BookStoreDatabaseSettings>(
 
 builder.Services.AddSingleton<BooksService>();
 
+//builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -247,9 +272,9 @@ app.MapControllers();
 app.Run();
 ```
 
-## 7. Modify appsettings.json file
+## 8. Modify appsettings.json file
 
-In the appsettings.json file include the following code:
+In the **appsettings.json** file include the following code:
 
 ```json
 {
@@ -260,8 +285,8 @@ In the appsettings.json file include the following code:
     }
   },
   "BookStoreDatabase": {
-    "ConnectionString": "mongodb://localhost:27017",
-    "DatabaseName": "BookStore",
+    "ConnectionString": "mongodb://mymongodbinazure:4rriLsdDhrtgcjtb2N6LON1sVoMNyujurKiWzhKXoS5cNdNloIZ8pPclPqNVsoilPK4QlnuQjtIfACDb6AY2mA==@mymongodbinazure.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@mymongodbinazure@",
+    "DatabaseName": "test",
     "BooksCollectionName": "Books"
   },
   "AllowedHosts": "*"
@@ -294,9 +319,9 @@ In the appsettings.json file include the following code:
 
 Overall, this JSON file is used to configure logging, database connections, and security policies for a web application, likely built with technologies like ASP.NET Core (indicated by the Microsoft.AspNetCore logging configuration).
 
-## 8. How to run the application
+## 9. How to run the application
 
-### 8.1. First, we need to pull and run the MondoDB database Docker container image
+### 9.1. First, we need to pull and run the MondoDB database Docker container image
 
 For pulling the MondoDB docker image from Docker hub we run these commands
 
@@ -322,34 +347,27 @@ docker exec -it mongodb-container mongosh
 
 And also we create a new database with a collections and two documents inside, see this picture:
 
-![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-MongoDB/assets/32194879/29417925-b773-4350-b2f3-e0d982ac62e1)
 
-### 8.2. Second, we verify the data with 3T Studio Free for MongoDb
+
+### 9.2. Second, we verify the data with 3T Studio Free for MongoDb
 
 We connect to the MongoDB running container from 3T Studio setting the connection string: **mongodb://localhost:27017**
 
-![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-MongoDB/assets/32194879/2fe753e7-66e4-461b-96fb-824c46a9e032)
 
-![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-MongoDB/assets/32194879/729fbbef-5c62-4ced-8026-86119d45bfd9)
-
-![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-MongoDB/assets/32194879/c4b3e323-763b-467d-8abe-5f01418260e2)
 
 We set the connection name
 
-![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-MongoDB/assets/32194879/9e6a36b0-aeb3-4a88-b526-466297751eec)
+
 
 And we connect to the database
 
-![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-MongoDB/assets/32194879/dea5a270-256b-4f5e-93ad-96a546e61965)
+
 
 See the data inside the new database and collection
 
-![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-MongoDB/assets/32194879/4b031a72-e331-4e52-8f49-31b79cc68655)
 
-### 8.3. Third, we build and run the WebAPI application with HTTP protocol
+### 9.3. Third, we build and run the WebAPI application with HTTP protocol
 
-![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-MongoDB/assets/32194879/89b68958-2bec-4a2e-a813-1bcaa3f30df2)
 
-![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-MongoDB/assets/32194879/ce563ef0-2236-4cb8-a119-43b6bafe277c)
 
 
