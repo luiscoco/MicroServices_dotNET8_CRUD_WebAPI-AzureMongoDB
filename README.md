@@ -1,6 +1,27 @@
 # How to create a .NET8 WebAPI CRUD MongoDB Microservice
 
-The code for this example is available in this github repo: https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-MongoDB_deployed_to_Docker_DeskTop
+The code for this example is available in this github repo: https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB
+
+This application is very similar to the one we developed to connect to a MongDB in a local Docker container, but in this case we are going to connect our WebAPI to Azure MongoDB account.
+
+The main changes we introduce are in **Program.cs** and **appsettings.json** files:
+
+In the **appsettings.json** file we include the Azure MongoDB connection string, and in the **Program.cs** file we include these changes:
+
+```csharp
+// MongoDB configuration
+string connectionString =
+    @"mongodb://mymongodbinazure:4rriLsdDhrtgcjtb2N6LON1sVoMNyujurKiWzhKXoS5cNdNloIZ8pPclPqNVsoilPK4QlnuQjtIfACDb6AY2mA==@mymongodbinazure.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@mymongodbinazure@";
+MongoClientSettings settings = MongoClientSettings.FromUrl(
+    new MongoUrl(connectionString)
+);
+settings.SslSettings = new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
+
+var mongoClient = new MongoClient(settings);
+
+// Register MongoClient with DI container
+builder.Services.AddSingleton<IMongoClient>(mongoClient);
+```
 
 ## 0. Prerequisites
 
@@ -12,7 +33,17 @@ The code for this example is available in this github repo: https://github.com/l
 
 ## 1. Create Azure CosmosDB
 
+We navigate to **Azure CosmosDB** service and we click in this option to create a new account:
 
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/448847ba-4e3c-4048-a477-980bada707dd)
+
+We click on **Azure CosmosDB account** button
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/d9aa0fce-e126-476a-b97a-1db075097e7a)
+
+Now we select the option Azure CosmosDB for MongoDB, and we press the **create** button
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/7b3640b0-1dee-49c5-aa9b-bce605b271e6)
 
 
 
