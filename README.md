@@ -411,7 +411,7 @@ In the **appsettings.json** file include the following code:
 
 "**BookStoreDatabase**": This section contains settings specific to a database used by a Book Store application.
 
-"**ConnectionString**": "mongodb://localhost:27017": Defines the connection string for the database. This particular string indicates that the application connects to a MongoDB instance running on localhost (the same machine where the application is running) and listening on port 27017.
+"**ConnectionString**": Defines the connection string for the database. This particular string indicates that the application connects to a MongoDB instance running on localhost (the same machine where the application is running) and listening on port 27017.
 
 "**DatabaseName**": "**BookStore**": Specifies the name of the database within MongoDB to be used, which is "BookStore" in this case.
 
@@ -425,38 +425,11 @@ Overall, this JSON file is used to configure logging, database connections, and 
 
 ## 9. How to run the application
 
-### 9.1. First, we need to pull and run the MondoDB database Docker container image
+### 9.1. We verify the data with 3T Studio Free for MongoDb
 
-For pulling the MondoDB docker image from Docker hub we run these commands
+We connect to the MongoDB running container from 3T Studio setting the connection string: 
 
-```
-docker login
-```
-
-```
-docker pull mongo
-```
-
-For running the Mongodb docker image we type the command:
-
-```
-docker run -d -p 27017:27017 --name mongodb-container mongo
-```
-
-To enter in the Mongodb database we type this command:
-
-```
-docker exec -it mongodb-container mongosh
-```
-
-And also we create a new database with a collections and two documents inside, see this picture:
-
-
-
-### 9.2. Second, we verify the data with 3T Studio Free for MongoDb
-
-We connect to the MongoDB running container from 3T Studio setting the connection string: **mongodb://localhost:27017**
-
+**mongodb://mymongodbinazure:4rriLsdDhrtgcjtb2N6LON1sVoMNyujurKiWzhKXoS5cNdNloIZ8pPclPqNVsoilPK4QlnuQjtIfACDb6AY2mA==@mymongodbinazure.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@mymongodbinazure@**
 
 
 We set the connection name
@@ -470,7 +443,7 @@ And we connect to the database
 See the data inside the new database and collection
 
 
-### 9.3. Third, we build and run the WebAPI application with HTTP protocol
+### 9.3. We build and run the WebAPI application with HTTP protocol
 
 
 
