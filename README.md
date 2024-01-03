@@ -6,22 +6,7 @@ This application is very similar to the one we developed to connect to a MongDB 
 
 The main changes we introduce are in **Program.cs** and **appsettings.json** files:
 
-In the **appsettings.json** file we include the Azure MongoDB connection string, and in the **Program.cs** file we include these changes:
-
-```csharp
-// MongoDB configuration
-string connectionString =
-    @"mongodb://mymongodbinazure:4rriLsdDhrtgcjtb2N6LON1sVoMNyujurKiWzhKXoS5cNdNloIZ8pPclPqNVsoilPK4QlnuQjtIfACDb6AY2mA==@mymongodbinazure.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@mymongodbinazure@";
-MongoClientSettings settings = MongoClientSettings.FromUrl(
-    new MongoUrl(connectionString)
-);
-settings.SslSettings = new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
-
-var mongoClient = new MongoClient(settings);
-
-// Register MongoClient with DI container
-builder.Services.AddSingleton<IMongoClient>(mongoClient);
-```
+In the **appsettings.json** file we include the Azure MongoDB connection string (see section 8), and in the **Program.cs** file (see Section 7)
 
 ## 0. Prerequisites
 
