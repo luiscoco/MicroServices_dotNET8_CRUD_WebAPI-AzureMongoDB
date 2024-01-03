@@ -101,6 +101,21 @@ You can also show the collections inside the database running the command:
 show collections
 ```
 
+To insert may items/documents inside the “Books” collections then type the command: 
+
+```
+db.Books.insertMany([{ "Name": "Design Patterns", "Price": 54.93, "Category": "Computers", 
+"Author": "Ralph Johnson" }, { "Name": "Clean Code", "Price": 43.15, "Category": 
+"Computers","Author": "Robert C. Martin" }])
+```
+
+Finally, if you would like to show the items/documents inside the “Books” collection then type 
+the command: 
+
+```
+db.Books.find().pretty() 
+```
+
 ## 2. Create .NET8 WebAPI in Visual Studio 2022 Community Edition
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-MongoDB/assets/32194879/a8457769-9718-4954-9d14-6a3950cf8b53)
