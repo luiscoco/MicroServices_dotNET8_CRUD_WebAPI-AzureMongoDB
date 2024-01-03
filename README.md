@@ -77,16 +77,28 @@ We press the **Open Mongo Shell** button
 
 Run these commands in you terminal window for creating the new database, collection and documents
 
-```
+To list the databases run the command: 
 
 ```
-
+show databases 
 ```
 
-```
+To switch or create the database “BookStore” run the command: 
 
 ```
+use BookStore 
+```
 
+To create a new collection “Books” run the command 
+
+```
+db.createCollection('Books') 
+```
+
+You can also show the collections inside the database running the command: 
+
+```
+show collections
 ```
 
 ## 2. Create .NET8 WebAPI in Visual Studio 2022 Community Edition
