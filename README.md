@@ -459,6 +459,24 @@ See the data inside the new database and collection
 
 ### 9.3. We build and run the WebAPI application with HTTP protocol
 
+**IMPORTANT**: do not forget to set in **appsetting.json** file the ConnectionString, Databasename and BooksCollectionName:
+
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "BookStoreDatabase": {
+    "ConnectionString": "mongodb://myazuremongodbaccount:k0tI6zIksIoaslJ96FcSwGjzXZUHYfC48OKWut7DhepRARY3F4ddwK92TXfTIocPb8lw9NRi2tZ6ACDbgV4glg==@myazuremongodbaccount.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@myazuremongodbaccount@",
+    "DatabaseName": "BookStore",
+    "BooksCollectionName": "Books"
+  },
+  "AllowedHosts": "*"
+}
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/e1250d14-31e1-4edd-bb2c-e4e63a78c599)
 
 
 
