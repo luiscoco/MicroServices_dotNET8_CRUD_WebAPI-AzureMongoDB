@@ -75,7 +75,19 @@ We press the **Open Mongo Shell** button
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/9d31294c-491b-49b4-9842-8b4aa9118d1f)
 
+Run these commands in you terminal window for creating the new database, collection and documents
 
+```
+
+```
+
+```
+
+```
+
+```
+
+```
 
 ## 2. Create .NET8 WebAPI in Visual Studio 2022 Community Edition
 
