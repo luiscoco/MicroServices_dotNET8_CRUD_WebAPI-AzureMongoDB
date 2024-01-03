@@ -65,9 +65,16 @@ Capacity mode: **serverless**
 
 By default the first screen we are going to see after the service creation in the **QuickStart** page
 
-Pay attention to the connection string for setting up you .NET WebAPI 
+Pay attention and copy the ConnectionString values and configuration to set up your **program.cs** and **appsettings.json** files in your .NET WebAPI 
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/06c6ce1f-5ee5-4fce-b5f2-3bfd3c277a37)
+
+We navigate to the **Data Explorer** page in order to create a new database and collection, and populate it with two documents
+
+We press the **Open Mongo Shell** button
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/9d31294c-491b-49b4-9842-8b4aa9118d1f)
+
 
 
 ## 2. Create .NET8 WebAPI in Visual Studio 2022 Community Edition
