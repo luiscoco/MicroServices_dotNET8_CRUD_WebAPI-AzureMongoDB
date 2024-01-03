@@ -120,6 +120,8 @@ db.Books.find().pretty()
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/07e481be-7a3c-4dca-aa04-4d34a9cf663a)
 
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/225e7d5e-cd4a-4d88-8b79-644cb07f1b2e)
+
 ## 2. Create .NET8 WebAPI in Visual Studio 2022 Community Edition
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-MongoDB/assets/32194879/a8457769-9718-4954-9d14-6a3950cf8b53)
