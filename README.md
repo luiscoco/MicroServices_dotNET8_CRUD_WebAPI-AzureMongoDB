@@ -63,7 +63,11 @@ Capacity mode: **serverless**
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/3807c092-9ee5-4042-8d43-4d78f14ba697)
 
+By default the first screen we are going to see after the service creation in the **QuickStart** page
 
+Pay attention to the connection string for setting up you .NET WebAPI 
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/06c6ce1f-5ee5-4fce-b5f2-3bfd3c277a37)
 
 
 ## 2. Create .NET8 WebAPI in Visual Studio 2022 Community Edition
