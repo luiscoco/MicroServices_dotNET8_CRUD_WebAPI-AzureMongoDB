@@ -429,19 +429,31 @@ Overall, this JSON file is used to configure logging, database connections, and 
 
 We connect to the MongoDB running container from 3T Studio setting the connection string: 
 
-**mongodb://mymongodbinazure:4rriLsdDhrtgcjtb2N6LON1sVoMNyujurKiWzhKXoS5cNdNloIZ8pPclPqNVsoilPK4QlnuQjtIfACDb6AY2mA==@mymongodbinazure.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@mymongodbinazure@**
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/46f2136c-a2d3-4373-abb2-61d0ba8fd149)
 
+```
+mongodb://myazuremongodbaccount:k0tI6zIksIoaslJ96FcSwGjzXZUHYfC48OKWut7DhepRARY3F4ddwK92TXfTIocPb8lw9NRi2tZ6ACDbgV4glg==@myazuremongodbaccount.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@myazuremongodbaccount@
+```
 
 We set the connection name
 
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/3202afac-2001-4f8d-af01-83f080d08d6e)
 
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/85099806-eba5-4ff8-89aa-c6ac070d44fa)
 
 And we connect to the database
 
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/25f5632c-fba9-49a9-a956-0a2846b8cc58)
 
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/4db9e97b-6d5a-42af-bfd1-eb1bd0a24231)
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/b8fe0f8c-7232-4554-bfea-5f9e6328a109)
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/33352aee-30c8-4549-b6db-910af087a51b)
 
 See the data inside the new database and collection
 
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-AzureMongoDB/assets/32194879/c890701a-6c90-4b9f-9b89-99f2dfef9b73)
 
 ### 9.3. We build and run the WebAPI application with HTTP protocol
 
